@@ -1273,6 +1273,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2488686268716638048, guid: c075ef574ef66eb4eba3e6c497741d06, type: 3}
+      propertyPath: m_Radius
+      value: 2.6825905
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488686268716638048, guid: c075ef574ef66eb4eba3e6c497741d06, type: 3}
+      propertyPath: m_Center.y
+      value: 2.1825912
+      objectReference: {fileID: 0}
+    - target: {fileID: 2488686268716638048, guid: c075ef574ef66eb4eba3e6c497741d06, type: 3}
+      propertyPath: m_Center.z
+      value: -0
+      objectReference: {fileID: 0}
     - target: {fileID: 2488686268716638050, guid: c075ef574ef66eb4eba3e6c497741d06, type: 3}
       propertyPath: m_Name
       value: Player
