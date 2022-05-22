@@ -135,8 +135,8 @@ GameObject:
   - component: {fileID: 134911443}
   - component: {fileID: 134911442}
   - component: {fileID: 134911440}
-  - component: {fileID: 134911441}
   - component: {fileID: 134911445}
+  - component: {fileID: 134911441}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -160,8 +160,8 @@ MonoBehaviour:
   floatSpeed: 10
   movementSmoothing: 0.3
   turnSmoothing: 10000
---- !u!65 &134911441
-BoxCollider:
+--- !u!135 &134911441
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -171,7 +171,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &134911442
 MeshRenderer:
@@ -221,7 +221,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 134911439}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!4 &134911444
 Transform:
   m_ObjectHideFlags: 0
