@@ -34,5 +34,6 @@ public class sceneManagementScript : MonoBehaviour
     public void exitGame()
     {
         Application.Quit();
+        Debug.Log("The Game was Quit.");
     }
 }
