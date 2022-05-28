@@ -36,6 +36,7 @@ public class EnemyAI : MonoBehaviour
     {
         agent.SetDestination(foundWaypoint.position);
         agent.speed = speed;
+        RunAway();
     }
 
 
@@ -68,7 +69,8 @@ public class EnemyAI : MonoBehaviour
     IEnumerator ScaredTime()
     {
         isScared = true;
-        
+        agent.SetDestination(-player.transform.position);
+        agent.speed = speed * 2;
         yield return new WaitForSeconds(4);
         isScared = false;
     }
