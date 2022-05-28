@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     public PlayerStats stats;
     public CharacterController controller;
     public Animator anim;
+    public Transform camTransform;
     public bool isScaring;
 
 
@@ -30,6 +31,7 @@ public class PlayerController : MonoBehaviour
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
+        direction = Quaternion.AngleAxis(camTransform.rotation.eulerAngles.y, Vector3.up) * direction;
 
 
         if (direction.magnitude >= 0.1f)
