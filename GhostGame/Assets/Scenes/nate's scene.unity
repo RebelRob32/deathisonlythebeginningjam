@@ -358,7 +358,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 72819452}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 317.6, y: -267.9, z: 3.3}
+  m_LocalPosition: {x: 317.6, y: -261.4, z: 3.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1928560217}
@@ -573,7 +573,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 200858478}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 300.2, y: -267.9, z: 212.1}
+  m_LocalPosition: {x: 300.2, y: -261.4, z: 212.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1928560217}
@@ -1250,7 +1250,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 614799548}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 245.6, y: -267.9, z: -66.9}
+  m_LocalPosition: {x: 245.6, y: -261.4, z: -66.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1928560217}
@@ -1657,7 +1657,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 889726714}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 199.2, y: -267.9, z: 90}
+  m_LocalPosition: {x: 199.2, y: -261.4, z: 90}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1928560217}
@@ -1827,11 +1827,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04f9ac999c88e1942a66ed37dbd28a13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
   player: {fileID: 0}
   agent: {fileID: 0}
-  movePosition: []
-  currentPosition: {fileID: 0}
-  speed: 5
+  waypoints: []
+  currentWaypoint: {fileID: 0}
+  foundWaypoint: {fileID: 0}
+  speed: 15
   index: 0
   isScared: 0
 --- !u!1 &1030154596
@@ -1858,7 +1860,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1030154596}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 203.9, y: -267.9, z: -8.8}
+  m_LocalPosition: {x: 203.9, y: -261.4, z: -8.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1928560217}
@@ -2574,6 +2576,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 655009179, guid: 0686591ff9b27564186c662b1e4211a4, type: 3}
+      propertyPath: speed
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 8072464011198684994, guid: 0686591ff9b27564186c662b1e4211a4, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
@@ -2725,11 +2731,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04f9ac999c88e1942a66ed37dbd28a13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
   player: {fileID: 0}
   agent: {fileID: 0}
-  movePosition: []
-  currentPosition: {fileID: 0}
-  speed: 5
+  waypoints: []
+  currentWaypoint: {fileID: 0}
+  foundWaypoint: {fileID: 0}
+  speed: 15
   index: 0
   isScared: 0
 --- !u!4 &1370582145 stripped
@@ -2901,11 +2909,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04f9ac999c88e1942a66ed37dbd28a13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
   player: {fileID: 0}
   agent: {fileID: 0}
-  movePosition: []
-  currentPosition: {fileID: 0}
-  speed: 5
+  waypoints: []
+  currentWaypoint: {fileID: 0}
+  foundWaypoint: {fileID: 0}
+  speed: 15
   index: 0
   isScared: 0
 --- !u!1 &1543648429
@@ -3261,7 +3271,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1814071141}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 323.7, y: -267.9, z: 159.3}
+  m_LocalPosition: {x: 323.7, y: -261.4, z: 159.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1928560217}
@@ -3291,7 +3301,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1829048931}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 321, y: -267.9, z: -71.2}
+  m_LocalPosition: {x: 321, y: -261.4, z: -71.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1928560217}
@@ -3640,11 +3650,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04f9ac999c88e1942a66ed37dbd28a13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
   player: {fileID: 0}
   agent: {fileID: 0}
-  movePosition: []
-  currentPosition: {fileID: 0}
-  speed: 5
+  waypoints: []
+  currentWaypoint: {fileID: 0}
+  foundWaypoint: {fileID: 0}
+  speed: 15
   index: 0
   isScared: 0
 --- !u!1001 &2488686267933274910
