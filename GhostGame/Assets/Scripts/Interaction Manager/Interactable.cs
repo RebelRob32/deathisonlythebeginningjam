@@ -11,9 +11,21 @@ namespace Charging
         public KeyCode interactKey;
         public GameObject uiIcon;
         public UnityEvent interactAction;
+        public EnemyAI enem;
+        public PlayerAnimationController player;
+
+        public GameObject[] enemies;
+        public Transform foundEnemy;
+        public float ghostRange;
 
         void Update()
         {
+          
+            if(isInRange == false)
+            {
+                foundEnemy = null;
+            }
+
             if (isInRange)
             {
                 uiIcon.SetActive(true);
@@ -26,6 +38,8 @@ namespace Charging
                 uiIcon.SetActive(false);
             }
         }
+
+     
 
         private void OnTriggerEnter(Collider collision)
         {
@@ -45,4 +59,6 @@ namespace Charging
             }
         }
     }
+
+ 
 }

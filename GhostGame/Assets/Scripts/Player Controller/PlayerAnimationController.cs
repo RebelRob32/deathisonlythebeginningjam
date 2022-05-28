@@ -8,6 +8,7 @@ public class PlayerAnimationController : MonoBehaviour
     public PlayerMovementScript playerMovementScript;
     private float holdForScare;
     public float lengthOfScare= 2.3f;
+    public bool isScaring;
 
     // Update is called once per frame
     void Update()
