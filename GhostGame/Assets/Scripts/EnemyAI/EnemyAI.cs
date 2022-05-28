@@ -72,6 +72,7 @@ public class EnemyAI : MonoBehaviour
     IEnumerator ScaredTime()
     {
         isScared = true;
+        
         yield return new WaitForSeconds(4);
         isScared = false;
     }
