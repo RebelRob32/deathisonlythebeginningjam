@@ -7,6 +7,6 @@ public class PlayerStats : ScriptableObject
     public float speed;
     public float turnSmoothTime;
     public float turnSmoothVelocity;
-   
+    public float range;
 
 }

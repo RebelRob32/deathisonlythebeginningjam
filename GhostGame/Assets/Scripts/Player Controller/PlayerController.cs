@@ -8,12 +8,17 @@ public class PlayerController : MonoBehaviour
     public CharacterController controller;
     public Animator anim;
     public Transform camTransform;
+    public GameObject[] humans;
+    public Transform closestHuman;
+
     public bool isScaring;
+    public bool inRange;
 
 
     public void Awake()
     {
         controller = GetComponent<CharacterController>();
+        humans = GameObject.FindGameObjectsWithTag("Human");
         anim = GetComponent<Animator>();
     }
 
@@ -47,9 +52,25 @@ public class PlayerController : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
     }
 
+    public void GetHumansInRange()
+    {
+        if(closestHuman != null)
+        {
+            float dist = Vector3.Distance(transform.position, closestHuman.transform.position);
+            if(dist <= stats.range)
+            {
+                inRange = true;
+            }
+            else
+            {
+                inRange = false;
+            }
+        }
+    }
+
     public void Scare()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space) && inRange == true)
         {
             anim.SetBool("isScaring", true);
             isScaring = true;
@@ -59,5 +80,11 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("isScaring", false);
             isScaring = false;
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, stats.range);
     }
 }
