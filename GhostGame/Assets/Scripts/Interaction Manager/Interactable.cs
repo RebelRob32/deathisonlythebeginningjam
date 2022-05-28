@@ -14,17 +14,11 @@ namespace Charging
         public EnemyAI enem;
         public PlayerAnimationController player;
 
-        public GameObject[] enemies;
-        public Transform foundEnemy;
-        public float ghostRange;
-
+     
         void Update()
         {
           
-            if(isInRange == false)
-            {
-                foundEnemy = null;
-            }
+          
 
             if (isInRange)
             {
