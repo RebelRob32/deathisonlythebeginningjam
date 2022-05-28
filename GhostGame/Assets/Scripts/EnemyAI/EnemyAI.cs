@@ -5,14 +5,17 @@ using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
+    public PlayerController player;
     public NavMeshAgent agent;
     public Transform[] waypoints;
     int waypointIndex;
     Vector3 target;
+    public bool isScared;
 
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindObjectOfType<PlayerController>();
         agent = GetComponent<NavMeshAgent>();
         UpdateDestination();
     }
@@ -41,5 +44,20 @@ public class EnemyAI : MonoBehaviour
         {
             waypointIndex = 0;
         }
+    }
+
+    public void RunAway()
+    {
+        if(player.isScaring == true)
+        {
+            StartCoroutine(ScaredTime());
+        }
+    }
+
+    IEnumerator ScaredTime()
+    {
+        isScared = true;
+        yield return new WaitForSeconds(4);
+        isScared = false;
     }
 }
