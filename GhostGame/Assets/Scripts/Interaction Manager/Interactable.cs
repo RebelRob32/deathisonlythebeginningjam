@@ -17,9 +17,6 @@ namespace Charging
      
         void Update()
         {
-          
-          
-
             if (isInRange)
             {
                 uiIcon.SetActive(true);

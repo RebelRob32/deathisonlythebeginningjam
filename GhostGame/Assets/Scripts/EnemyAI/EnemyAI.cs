@@ -5,10 +5,13 @@ using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
+    public Animator anim;
     public PlayerController player;
     public NavMeshAgent agent;
-    public GameObject[] movePosition;
-    public GameObject currentPosition;
+    public GameObject[] waypoints;
+    public GameObject currentWaypoint;
+    public Transform foundWaypoint;
+
 
     public float speed;
     public int index;
@@ -19,7 +22,7 @@ public class EnemyAI : MonoBehaviour
     {
         player = GameObject.FindObjectOfType<PlayerController>();
         agent = GetComponent<NavMeshAgent>();
-        
+        StartCoroutine(SimulateLife());
       
     }
 
@@ -31,21 +34,27 @@ public class EnemyAI : MonoBehaviour
 
     public void FixedUpdate()
     {
-        PositionRNG();
+        agent.SetDestination(foundWaypoint.position);
+        agent.speed = speed;
     }
 
 
     public void PositionRNG()
     {
-        movePosition = GameObject.FindGameObjectsWithTag("Waypoint");
-        index = Random.Range(0, movePosition.Length);
-        currentPosition = movePosition[index];
+        waypoints = GameObject.FindGameObjectsWithTag("Waypoint");
+        index = Random.Range(0, waypoints.Length);
+        currentWaypoint = waypoints[index];
 
-        agent.SetDestination(currentPosition.transform.position * Time.deltaTime * speed);
-
-
+        foundWaypoint = currentWaypoint.transform;
     }
 
+    IEnumerator SimulateLife()
+    {
+        PositionRNG();
+        yield return new WaitForSeconds(10);
+        StartCoroutine(SimulateLife());
+    }
+   
     public void RunAway()
     {
         if(player.isScaring == true)
@@ -53,6 +62,8 @@ public class EnemyAI : MonoBehaviour
             StartCoroutine(ScaredTime());
         }
     }
+
+  
 
     IEnumerator ScaredTime()
     {
