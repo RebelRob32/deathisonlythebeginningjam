@@ -14,6 +14,7 @@ public class EnemyAI : MonoBehaviour
 
 
     public float speed;
+    public float range;
     public int index;
     public bool isScared;
 
@@ -33,10 +34,11 @@ public class EnemyAI : MonoBehaviour
     }
 
     public void FixedUpdate()
-    {
+    {   
+        RunAway();
         agent.SetDestination(foundWaypoint.position);
         agent.speed = speed;
-        RunAway();
+       
     }
 
 
@@ -58,9 +60,13 @@ public class EnemyAI : MonoBehaviour
    
     public void RunAway()
     {
-        if(player.isScaring == true)
+        if(player.isScaring == true && player.closestHuman != null && player.inRange == true)
         {
             StartCoroutine(ScaredTime());
+        }
+        else
+        {
+            return;
         }
     }
 
@@ -69,9 +75,24 @@ public class EnemyAI : MonoBehaviour
     IEnumerator ScaredTime()
     {
         isScared = true;
-        agent.SetDestination(-player.transform.position);
-        agent.speed = speed * 2;
+        if (isScared == true)
+        {
+            Vector3 randomDir = Random.insideUnitSphere * range;
+            randomDir += transform.position;
+            NavMeshHit hit;
+            NavMesh.SamplePosition(randomDir, out hit, range, 1);
+            Vector3 finalPos = hit.position;
+            agent.SetDestination(finalPos);
+            agent.speed = speed * 5;
+        }
         yield return new WaitForSeconds(4);
         isScared = false;
     }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, range);
+    }
+
 }

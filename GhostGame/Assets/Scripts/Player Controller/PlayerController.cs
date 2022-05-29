@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
 
     public void Update()
     {
+        closestHuman = GetHumansInRange();
+        GetClosestHuman();
         Scare();
     }
     public void FixedUpdate()
@@ -52,7 +54,26 @@ public class PlayerController : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
     }
 
-    public void GetHumansInRange()
+    public Transform GetHumansInRange()
+    {
+        humans = GameObject.FindGameObjectsWithTag("Human");
+
+        float closestDist = Mathf.Infinity;
+        Transform trans = null;
+
+        foreach(GameObject human in humans)
+        {
+            float currentdist;
+            currentdist = Vector3.Distance(transform.position, human.transform.position);
+            if(currentdist < closestDist)
+            {
+                closestDist = currentdist;
+                trans = human.transform;
+            }
+        }
+        return trans; 
+    }
+    public void GetClosestHuman()
     {
         if(closestHuman != null)
         {
@@ -67,7 +88,7 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-
+ 
     public void Scare()
     {
         if (Input.GetKey(KeyCode.Space) && inRange == true)

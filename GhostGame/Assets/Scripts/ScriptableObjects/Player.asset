@@ -14,7 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 50
   turnSmoothTime: 0.1
-  turnSmoothVelocity: -233.77083
-  holdForScare: 1
-  lengthOfScare: 2.3
-  isScaring: 0
+  turnSmoothVelocity: 241.15733
+  range: 25
