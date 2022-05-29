@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour
  
     public void Scare()
     {
-        if (Input.GetKey(KeyCode.Space) && inRange == true)
+        if (Input.GetKeyDown(KeyCode.Space) && inRange == true)
         {
             anim.SetBool("isScaring", true);
             isScaring = true;

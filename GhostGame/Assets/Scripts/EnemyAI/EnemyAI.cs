@@ -10,6 +10,7 @@ public class EnemyAI : MonoBehaviour
     public NavMeshAgent agent;
     public GameObject[] waypoints;
     public GameObject currentWaypoint;
+    public GameObject exit;
     public Transform foundWaypoint;
 
 
@@ -25,6 +26,7 @@ public class EnemyAI : MonoBehaviour
     {
         player = GameObject.FindObjectOfType<PlayerController>();
         agent = GetComponent<NavMeshAgent>();
+        exit = GameObject.FindWithTag("Exit");
         StartCoroutine(SimulateLife());
         fearlevel = 0f;
     }
@@ -38,8 +40,7 @@ public class EnemyAI : MonoBehaviour
     public void FixedUpdate()
     {   
         RunAway();
-        agent.SetDestination(foundWaypoint.position);
-        agent.speed = speed;
+        
        
     }
 
@@ -56,6 +57,8 @@ public class EnemyAI : MonoBehaviour
     IEnumerator SimulateLife()
     {
         PositionRNG();
+        agent.SetDestination(foundWaypoint.position);
+        agent.speed = speed;
         yield return new WaitForSeconds(10);
         StartCoroutine(SimulateLife());
     }
@@ -70,6 +73,12 @@ public class EnemyAI : MonoBehaviour
         else
         {
             return;
+        }
+
+        if(fearlevel >= 200f)
+        {
+            agent.SetDestination(exit.transform.position);
+            agent.speed = speed * 5;
         }
     }
 
@@ -99,4 +108,5 @@ public class EnemyAI : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, range);
     }
 
+  
 }
