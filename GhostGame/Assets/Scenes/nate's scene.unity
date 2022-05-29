@@ -1786,19 +1786,20 @@ MonoBehaviour:
         m_CallState: 2
   enem: {fileID: 0}
   player: {fileID: 0}
---- !u!65 &933134221
-BoxCollider:
+--- !u!136 &933134221
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 933134219}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 5, y: 5, z: 5}
-  m_Center: {x: 0, y: 3, z: 0}
+  m_Radius: 0.81216276
+  m_Height: 3.7257137
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.8729763, z: -0.31216276}
 --- !u!4 &933134222 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 58bdbabab0dcaf841a5301e151e98099, type: 3}
@@ -1843,11 +1844,14 @@ MonoBehaviour:
   agent: {fileID: 0}
   waypoints: []
   currentWaypoint: {fileID: 0}
+  exit: {fileID: 0}
   foundWaypoint: {fileID: 0}
   speed: 15
+  fearlevel: 0
   range: 35
   index: 0
   isScared: 0
+  playerIsInRange: 0
 --- !u!1 &1030154596
 GameObject:
   m_ObjectHideFlags: 0
@@ -2207,7 +2211,7 @@ GameObject:
   - component: {fileID: 1117398071}
   m_Layer: 0
   m_Name: HumanExit
-  m_TagString: Untagged
+  m_TagString: Exit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2220,7 +2224,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1117398069}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 210, y: -267.9, z: 222.38}
+  m_LocalPosition: {x: 210, y: -267.23, z: 217.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1928560217}
@@ -2234,11 +2238,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1117398069}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 8.002466, y: 5.090205, z: 8.969666}
-  m_Center: {x: 1.2035494, y: -2.0451026, z: 3.9848328}
+  m_Size: {x: 19.246788, y: 27.509163, z: 14.080734}
+  m_Center: {x: 6.8257103, y: 9.164375, z: 1.4292984}
 --- !u!1 &1138903180
 GameObject:
   m_ObjectHideFlags: 0
@@ -2624,19 +2628,20 @@ MonoBehaviour:
         m_CallState: 2
   enem: {fileID: 0}
   player: {fileID: 0}
---- !u!65 &1317540449
-BoxCollider:
+--- !u!136 &1317540449
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1317540447}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 5, y: 5, z: 5}
-  m_Center: {x: 0, y: 3, z: 0}
+  m_Radius: 0.87030554
+  m_Height: 5.18137
+  m_Direction: 1
+  m_Center: {x: 0, y: 2.5998554, z: -0.37030554}
 --- !u!195 &1317540450
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2646,7 +2651,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 1317540447}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 1.23
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -2655,7 +2660,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 2
+  m_Height: 5.11
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
@@ -2681,11 +2686,14 @@ MonoBehaviour:
   agent: {fileID: 0}
   waypoints: []
   currentWaypoint: {fileID: 0}
+  exit: {fileID: 0}
   foundWaypoint: {fileID: 0}
   speed: 15
+  fearlevel: 0
   range: 35
   index: 0
   isScared: 0
+  playerIsInRange: 0
 --- !u!4 &1370582145 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2488686268716638111, guid: c075ef574ef66eb4eba3e6c497741d06, type: 3}
@@ -2803,19 +2811,20 @@ MonoBehaviour:
         m_CallState: 2
   enem: {fileID: 0}
   player: {fileID: 0}
---- !u!65 &1470528341
-BoxCollider:
+--- !u!136 &1470528341
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1470528339}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 5, y: 5, z: 5}
-  m_Center: {x: 0, y: 3, z: 0}
+  m_Radius: 0.76158714
+  m_Height: 5.0049825
+  m_Direction: 1
+  m_Center: {x: 0, y: 2.453503, z: -0.26158714}
 --- !u!195 &1470528342
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2860,11 +2869,14 @@ MonoBehaviour:
   agent: {fileID: 0}
   waypoints: []
   currentWaypoint: {fileID: 0}
+  exit: {fileID: 0}
   foundWaypoint: {fileID: 0}
   speed: 15
+  fearlevel: 0
   range: 35
   index: 0
   isScared: 0
+  playerIsInRange: 0
 --- !u!1 &1543648429
 GameObject:
   m_ObjectHideFlags: 0
@@ -2965,6 +2977,54 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &1611196935
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1611196937}
+  - component: {fileID: 1611196936}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1611196936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1611196935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 404cf97fe9f7ed443bd624acf5d78b1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: {fileID: 0}
+  humans: []
+  winPanel: {fileID: 0}
+  losePanel: {fileID: 0}
+  timer: 500
+--- !u!4 &1611196937
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1611196935}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 107.052864, y: 4.470862, z: 4.747852}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1664371137
 GameObject:
   m_ObjectHideFlags: 0
@@ -3588,19 +3648,20 @@ MonoBehaviour:
         m_CallState: 2
   enem: {fileID: 0}
   player: {fileID: 0}
---- !u!65 &1980801681
-BoxCollider:
+--- !u!136 &1980801681
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1980801678}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 5, y: 5, z: 5}
-  m_Center: {x: 0, y: 3, z: 0}
+  m_Radius: 0.84734297
+  m_Height: 3.873474
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.9103867, z: -0.34734297}
 --- !u!195 &1980801682
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -3640,11 +3701,14 @@ MonoBehaviour:
   agent: {fileID: 0}
   waypoints: []
   currentWaypoint: {fileID: 0}
+  exit: {fileID: 0}
   foundWaypoint: {fileID: 0}
-  speed: 15
+  speed: 30
+  fearlevel: 0
   range: 35
   index: 0
   isScared: 0
+  playerIsInRange: 0
 --- !u!1001 &2488686267933274910
 PrefabInstance:
   m_ObjectHideFlags: 0
