@@ -18,6 +18,7 @@ public class EnemyAI : MonoBehaviour
     public float range;
     public int index;
     public bool isScared;
+    public bool playerIsInRange;
 
     // Start is called before the first frame update
     void Start()
@@ -61,7 +62,7 @@ public class EnemyAI : MonoBehaviour
    
     public void RunAway()
     {
-        if(player.isScaring == true && player.closestHuman != null && player.inRange == true)
+        if(player.isScaring == true && player.closestHuman != null && playerIsInRange == true)
         {
             StartCoroutine(ScaredTime());
             fearlevel += 25f;

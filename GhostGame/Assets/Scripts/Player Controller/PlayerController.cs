@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public Animator anim;
     public Transform camTransform;
     public GameObject[] humans;
-    public Transform closestHuman;
+    public GameObject closestHuman;
 
     public bool isScaring;
     public bool inRange;
@@ -54,12 +54,12 @@ public class PlayerController : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
     }
 
-    public Transform GetHumansInRange()
+    public GameObject GetHumansInRange()
     {
         humans = GameObject.FindGameObjectsWithTag("Human");
 
         float closestDist = Mathf.Infinity;
-        Transform trans = null;
+        GameObject holder = null;
 
         foreach(GameObject human in humans)
         {
@@ -68,10 +68,10 @@ public class PlayerController : MonoBehaviour
             if(currentdist < closestDist)
             {
                 closestDist = currentdist;
-                trans = human.transform;
+                holder = human;
             }
         }
-        return trans; 
+        return holder; 
     }
     public void GetClosestHuman()
     {
@@ -80,10 +80,12 @@ public class PlayerController : MonoBehaviour
             float dist = Vector3.Distance(transform.position, closestHuman.transform.position);
             if(dist <= stats.range)
             {
+                closestHuman.GetComponent<EnemyAI>().playerIsInRange = true;
                 inRange = true;
             }
             else
             {
+                closestHuman.GetComponent<EnemyAI>().playerIsInRange = false;
                 inRange = false;
             }
         }
