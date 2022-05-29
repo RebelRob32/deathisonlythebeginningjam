@@ -14,6 +14,7 @@ public class EnemyAI : MonoBehaviour
 
 
     public float speed;
+    public float fearlevel;
     public float range;
     public int index;
     public bool isScared;
@@ -24,7 +25,7 @@ public class EnemyAI : MonoBehaviour
         player = GameObject.FindObjectOfType<PlayerController>();
         agent = GetComponent<NavMeshAgent>();
         StartCoroutine(SimulateLife());
-      
+        fearlevel = 0f;
     }
 
     // Update is called once per frame
@@ -63,6 +64,7 @@ public class EnemyAI : MonoBehaviour
         if(player.isScaring == true && player.closestHuman != null && player.inRange == true)
         {
             StartCoroutine(ScaredTime());
+            fearlevel += 25f;
         }
         else
         {
@@ -75,6 +77,7 @@ public class EnemyAI : MonoBehaviour
     IEnumerator ScaredTime()
     {
         isScared = true;
+        
         if (isScared == true)
         {
             Vector3 randomDir = Random.insideUnitSphere * range;
