@@ -27,6 +27,9 @@ public class GameManager : MonoBehaviour
     {
         timer -= Time.deltaTime;
         humans = GameObject.FindGameObjectsWithTag("Human");
+        LoseCondition();
+        WinCondition();
+
     }
 
     public void GetScore()
@@ -39,7 +42,8 @@ public class GameManager : MonoBehaviour
         int numberOfHumans = humans.Length;
         if(numberOfHumans == 0)
         {
-            //win
+            
+            winPanel.SetActive(true);
         }
     }
 
@@ -48,6 +52,8 @@ public class GameManager : MonoBehaviour
         if (timer <= 0)
         {
             Time.timeScale = 0;
+            
+            losePanel.SetActive(true);
         }
     }
 }
