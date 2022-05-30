@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public GameObject[] humans;
     public GameObject winPanel;
     public GameObject losePanel;
+    public GameObject pausePanel;
     public float timer;
     public float currentTime;
 
@@ -35,6 +36,24 @@ public class GameManager : MonoBehaviour
         humans = GameObject.FindGameObjectsWithTag("Human");
         LoseCondition();
         WinCondition();
+
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            if(pausePanel != null)
+            {
+                bool isActive = pausePanel.activeSelf;
+                pausePanel.SetActive(!isActive);
+            }
+            if (pausePanel.activeSelf)
+            {
+                Time.timeScale = 0;
+            }
+            else
+            {
+                Time.timeScale = 1;
+            }
+           
+        }
     }
 
     public void AddPoints()
