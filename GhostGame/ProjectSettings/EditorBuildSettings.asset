@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main Menu.unity
     guid: 09cc44a0b50dfa64792d44eda8656995
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/nate's scene.unity
     guid: dded00a233561c449b6202503494985a
   - enabled: 1
