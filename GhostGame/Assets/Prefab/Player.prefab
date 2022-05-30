@@ -129,7 +129,7 @@ SkinnedMeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2488686267846567729}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -442,9 +442,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2488686268716638111}
   - component: {fileID: 2488686268716638110}
-  - component: {fileID: 2488686268716638051}
-  - component: {fileID: 2488686268716638048}
-  - component: {fileID: 2488686268716638049}
+  - component: {fileID: 801142662}
+  - component: {fileID: 801142663}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -461,7 +460,7 @@ Transform:
   m_GameObject: {fileID: 2488686268716638050}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -12.238, y: 4.8261, z: -14.989174}
-  m_LocalScale: {x: 3.35444, y: 3.35444, z: -3.35444}
+  m_LocalScale: {x: 1.8981433, y: 1.8981433, z: -1.8981433}
   m_Children:
   - {fileID: 2488686268275518145}
   - {fileID: 2488686267846567726}
@@ -487,24 +486,8 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!54 &2488686268716638051
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2488686268716638050}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!135 &2488686268716638048
-SphereCollider:
+--- !u!143 &801142662
+CharacterController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -514,9 +497,14 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 3.008688
-  m_Center: {x: 0, y: 2.508688, z: 0}
---- !u!114 &2488686268716638049
+  m_Height: 2.66
+  m_Radius: 1.76
+  m_SlopeLimit: 180
+  m_StepOffset: 0
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 2.36, z: 0}
+--- !u!114 &801142663
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -525,13 +513,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 2488686268716638050}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90a7cd4c7c4050647889bb1f0a782632, type: 3}
+  m_Script: {fileID: 11500000, guid: 68840e421122a4e43851ae615fe28c38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 10
-  floatSpeed: 10
-  movementSmoothing: 0.3
-  turnSmoothing: 10000
+  stats: {fileID: 11400000, guid: 12a49ad104a4594459f0986bf90b5f43, type: 2}
+  controller: {fileID: 0}
+  anim: {fileID: 0}
+  camTransform: {fileID: 0}
+  humans: []
+  closestHuman: {fileID: 0}
+  isScaring: 0
+  inRange: 0
 --- !u!1 &2488686269171772793
 GameObject:
   m_ObjectHideFlags: 0

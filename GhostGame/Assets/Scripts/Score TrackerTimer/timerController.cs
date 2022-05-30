@@ -6,7 +6,7 @@ public class timerController : MonoBehaviour
 {
     public float durationInSeconds;
     private float rotationPerSecond;
-    private float lastRotationHolder = 35f;
+    private float lastRotationHolder = -125f;
     public float lastTick = 0;
 
 
