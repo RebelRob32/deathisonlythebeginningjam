@@ -6,12 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public Text score;
+    public Text scoreText;
+    public int score;
     public GameObject[] humans;
     public GameObject winPanel;
     public GameObject losePanel;
     public float timer;
-    public float currentTime;
+    public int currentTime;
 
 
     public void Awake()
@@ -28,20 +29,23 @@ public class GameManager : MonoBehaviour
     {
         timer -= Time.deltaTime;
         
+        scoreText.text = "Score: " + score * timer;
         humans = GameObject.FindGameObjectsWithTag("Human");
         LoseCondition();
         WinCondition();
-        
-
     }
 
+    public void AddPoints()
+    {
+        int numberofHumans = humans.Length;
+        
+    }
    
     public void WinCondition()
     {
         int numberOfHumans = humans.Length;
         if(numberOfHumans == 0)
-        {
-            
+        { 
             winPanel.SetActive(true);
         }
     }
