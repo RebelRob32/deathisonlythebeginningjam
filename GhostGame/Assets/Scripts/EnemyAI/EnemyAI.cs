@@ -10,6 +10,8 @@ public class EnemyAI : MonoBehaviour
     public NavMeshAgent agent;
     public GameObject[] waypoints;
     public GameObject currentWaypoint;
+    public GameObject[] hidingSpots;
+    public GameObject currentHidingSpot;
     public GameObject exit;
     public Transform foundWaypoint;
 
