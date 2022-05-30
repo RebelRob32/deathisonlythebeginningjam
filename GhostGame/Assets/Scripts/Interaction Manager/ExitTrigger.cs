@@ -5,7 +5,6 @@ using UnityEngine;
 public class ExitTrigger : MonoBehaviour
 {
     public GameManager gm;
-    public float points;
 
     public void Awake()
     {
@@ -15,10 +14,11 @@ public class ExitTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Human")
-        {
+        {   
+            
             Debug.Log("Exit");
             other.gameObject.SetActive(false);
-            
+            gm.score += 25;
             
         }
     }
