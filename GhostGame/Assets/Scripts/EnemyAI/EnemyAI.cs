@@ -29,6 +29,7 @@ public class EnemyAI : MonoBehaviour
         player = GameObject.FindObjectOfType<PlayerController>();
         agent = GetComponent<NavMeshAgent>();
         exit = GameObject.FindWithTag("Exit");
+        anim = GetComponent<Animator>();
         StartCoroutine(SimulateLife());
         fearlevel = 0f;
     }
@@ -61,7 +62,7 @@ public class EnemyAI : MonoBehaviour
         PositionRNG();
         agent.SetDestination(foundWaypoint.position);
         agent.speed = speed;
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(30);
         StartCoroutine(SimulateLife());
     }
    
