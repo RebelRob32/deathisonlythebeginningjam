@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public GameObject winPanel;
     public GameObject losePanel;
     public float timer;
+    public float currentTime;
 
 
     public void Awake()
@@ -26,17 +27,15 @@ public class GameManager : MonoBehaviour
     public void Update()
     {
         timer -= Time.deltaTime;
+        
         humans = GameObject.FindGameObjectsWithTag("Human");
         LoseCondition();
         WinCondition();
+        
 
     }
 
-    public void GetScore()
-    {
-
-    }
-
+   
     public void WinCondition()
     {
         int numberOfHumans = humans.Length;
@@ -55,5 +54,10 @@ public class GameManager : MonoBehaviour
             
             losePanel.SetActive(true);
         }
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
