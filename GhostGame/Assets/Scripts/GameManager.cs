@@ -7,12 +7,13 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public Text scoreText;
+    public Text timerText;
     public int score;
     public GameObject[] humans;
     public GameObject winPanel;
     public GameObject losePanel;
     public float timer;
-    public int currentTime;
+    public float currentTime;
 
 
     public void Awake()
@@ -28,8 +29,9 @@ public class GameManager : MonoBehaviour
     public void Update()
     {
         timer -= Time.deltaTime;
-        
-        scoreText.text = "Score: " + score * timer;
+
+        timerText.text = "Time Left: " + Mathf.Round(timer);
+        scoreText.text = "Score: " + score;
         humans = GameObject.FindGameObjectsWithTag("Human");
         LoseCondition();
         WinCondition();
