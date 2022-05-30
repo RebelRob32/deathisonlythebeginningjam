@@ -61,6 +61,14 @@ public class EnemyAI : MonoBehaviour
     IEnumerator SimulateLife()
     {
         PositionRNG();
+        if (gameObject.name == "HumanChild" || gameObject.name == "HumanChildGirl")
+        {
+            anim.Play("HumanChild_Walk");
+        }
+        else
+        {
+            anim.Play("Adulwalk");
+        }
         agent.SetDestination(foundWaypoint.position);
         agent.speed = speed;
         yield return new WaitForSeconds(30);
@@ -81,6 +89,14 @@ public class EnemyAI : MonoBehaviour
 
         if(fearlevel >= 200f)
         {
+            if (gameObject.name == "HumanChild" || gameObject.name == "HumanChildGirl")
+            {
+                anim.Play("HumanChild_Frightened");
+            }
+            else
+            {
+                anim.Play("AdultFrightened");
+            }
             agent.SetDestination(exit.transform.position);
             agent.speed = speed * 5;
         }
@@ -94,6 +110,14 @@ public class EnemyAI : MonoBehaviour
         
         if (isScared == true)
         {
+            if (gameObject.name == "HumanChild" || gameObject.name == "HumanChildGirl")
+            {
+                anim.Play("HumanChild_Afraid");
+            }
+            else
+            {
+                anim.Play("AdultAfraid");
+            }
             index = Random.Range(0, hidingSpots.Length);
             currentHidingSpot = hidingSpots[index];
 
