@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour
 {
     public Animator anim;
+    public AudioSource audi;
     public PlayerController player;
     public NavMeshAgent agent;
     public GameObject[] waypoints;
@@ -32,6 +33,7 @@ public class EnemyAI : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         exit = GameObject.FindWithTag("Exit");
         anim = GetComponent<Animator>();
+        audi = GetComponent<AudioSource>();
         StartCoroutine(SimulateLife());
         fearlevel = 0f;
     }
@@ -113,10 +115,12 @@ public class EnemyAI : MonoBehaviour
             if (gameObject.name == "HumanChild" || gameObject.name == "HumanChildGirl")
             {
                 anim.Play("HumanChild_Afraid");
+                audi.Play();
             }
             else
             {
                 anim.Play("AdultAfraid");
+                audi.Play();
             }
             index = Random.Range(0, hidingSpots.Length);
             currentHidingSpot = hidingSpots[index];
