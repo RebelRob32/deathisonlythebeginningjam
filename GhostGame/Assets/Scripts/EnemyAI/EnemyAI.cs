@@ -14,6 +14,7 @@ public class EnemyAI : MonoBehaviour
     public GameObject currentHidingSpot;
     public GameObject exit;
     public Transform foundWaypoint;
+    public Transform foundHidingSpot;
 
 
     public float speed;
@@ -27,6 +28,7 @@ public class EnemyAI : MonoBehaviour
     void Start()
     {
         player = GameObject.FindObjectOfType<PlayerController>();
+        hidingSpots = GameObject.FindGameObjectsWithTag("Hiding");
         agent = GetComponent<NavMeshAgent>();
         exit = GameObject.FindWithTag("Exit");
         anim = GetComponent<Animator>();
@@ -42,15 +44,14 @@ public class EnemyAI : MonoBehaviour
 
     public void FixedUpdate()
     {   
-        RunAway();
-        
-       
+        RunAway();  
     }
 
 
     public void PositionRNG()
     {
         waypoints = GameObject.FindGameObjectsWithTag("Waypoint");
+        
         index = Random.Range(0, waypoints.Length);
         currentWaypoint = waypoints[index];
 
@@ -93,15 +94,14 @@ public class EnemyAI : MonoBehaviour
         
         if (isScared == true)
         {
-            Vector3 randomDir = Random.insideUnitSphere * range;
-            randomDir += transform.position;
-            NavMeshHit hit;
-            NavMesh.SamplePosition(randomDir, out hit, range, 1);
-            Vector3 finalPos = hit.position;
-            agent.SetDestination(finalPos);
-            agent.speed = speed * 5;
+            index = Random.Range(0, hidingSpots.Length);
+            currentHidingSpot = hidingSpots[index];
+
+            foundHidingSpot = currentHidingSpot.transform;
+            agent.SetDestination(foundHidingSpot.transform.position);
+            agent.speed = speed * 2;
         }
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(15);
         isScared = false;
     }
 
