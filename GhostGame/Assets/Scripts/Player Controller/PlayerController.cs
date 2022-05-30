@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
         Vector3 velocity = direction * stats.speed;
         
 
-        controller.Move(velocity * Time.deltaTime);
+        controller.SimpleMove(velocity * Time.deltaTime);
     }
 
     public GameObject GetHumansInRange()

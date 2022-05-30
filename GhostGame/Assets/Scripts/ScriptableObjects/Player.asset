@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c11db78f97a9cc141917508762825766, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: 
-  speed: 50
+  speed: 1500
   turnSmoothTime: 0.1
-  turnSmoothVelocity: 241.15733
+  turnSmoothVelocity: -433.91846
   range: 25
